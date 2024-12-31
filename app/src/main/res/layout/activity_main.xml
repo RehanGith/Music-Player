@@ -3,25 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:id="@+id/main"
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
-        <FrameLayout
-            android:id="@+id/fragmentView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/buttomNav"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            app:backgroundTint="@color/white"
-            app:itemIconTint="@color/cool_pink"
-            app:itemTextAppearanceActive="@color/black"
-            app:itemTextAppearanceInactive="@android:color/darker_gray" />
+        tools:openDrawer="start">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:context=".MainActivity"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fragmentView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/buttomNav"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:backgroundTint="@color/white"
+                app:itemIconTint="@color/cool_pink"
+                app:itemTextAppearanceActive="@color/black"
+                app:itemTextAppearanceInactive="@android:color/darker_gray"
+                app:menu="@menu/buttom_navigation" />
+
+        </LinearLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/navigation_bar"
+
+            />
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
