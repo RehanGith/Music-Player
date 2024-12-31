@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Music Player</string>
-    <string name="all_videos">All Videos</string>
+    <string name="all_musics">All Musics</string>
     <string name="all_folders">All Folders</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="total_videos">Total Videos</string>
+    <string name="total_musics">Total Musics</string>
     <string name="total_folders">Total Folders</string>
     <string name="open">Open</string>
     <string name="close">close</string>
