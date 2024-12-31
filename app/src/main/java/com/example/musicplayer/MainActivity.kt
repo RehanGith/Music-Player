@@ -1,6 +1,7 @@
 package com.example.musicplayer
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,19 @@ class MainActivity : AppCompatActivity() {
         setFragment(MusicFragment())
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        toggle = ActionBarDrawerToggle(this@MainActivity, binding.drawerLayout, R.string.open, R.string.close)
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        binding.navView.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.feedbackNav -> Toast.makeText(this, "Feedback Nav selected", Toast.LENGTH_SHORT).show()
+                R.id.sortOrderNav-> Toast.makeText(this, "Sort order Nav selected", Toast.LENGTH_SHORT).show()
+                R.id.aboutNav -> Toast.makeText(this, "About Nav selected", Toast.LENGTH_SHORT).show()
+                R.id.themesNav -> Toast.makeText(this, "themes Nav selected", Toast.LENGTH_SHORT).show()
+                R.id.exitNav -> Toast.makeText(this, "Exit Nav selected", Toast.LENGTH_SHORT).show()
+            }
+            return@setNavigationItemSelectedListener true
+        }
         binding.buttomNav.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.allMusics -> setFragment(MusicFragment())
