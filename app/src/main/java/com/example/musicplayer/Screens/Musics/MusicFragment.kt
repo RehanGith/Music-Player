@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.musicplayer.R
 import com.example.musicplayer.databinding.FragmentFolderBinding
+import com.example.musicplayer.databinding.FragmentMusicBinding
 
 class MusicFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding:FragmentFolderBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_folder
+        val binding: FragmentMusicBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_music
         , container, false)
 
         return binding.root

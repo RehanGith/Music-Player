@@ -1,6 +1,7 @@
 package com.example.musicplayer
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         toggle = ActionBarDrawerToggle(this@MainActivity, binding.drawerLayout, R.string.open, R.string.close)
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.feedbackNav -> Toast.makeText(this, "Feedback Nav selected", Toast.LENGTH_SHORT).show()
@@ -46,5 +48,12 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragmentView, fragment)
         transaction.disallowAddToBackStack()
         transaction.commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
